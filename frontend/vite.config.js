@@ -9,7 +9,7 @@ export default defineConfig({
     port: 3000,
     proxy:{
       '/api': {
-        target :'http://localhost:5000',
+        target :import.meta.env.MODE==="development" ? 'http://localhost:5000/api':"/api",
         changeOrigin: true,  // enables CORS for proxying
       }  // replace with your backend server's URL
     }
